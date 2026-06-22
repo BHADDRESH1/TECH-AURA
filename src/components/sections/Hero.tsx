@@ -158,27 +158,23 @@ export default function Hero() {
               variant="primary-gold"
               size="lg"
               onClick={() => {
-                window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20Sponsorship%20Enquiry";
+                window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Sponsorship%20Enquiry";
               }}
             >
               Become Sponsor
             </InteractiveButton>
 
-            {/* Download Deck (Disabled Coming Soon) */}
-            <div className="relative group">
-              <InteractiveButton
-                variant="glass"
-                size="lg"
-                disabled
-                className="opacity-50 cursor-not-allowed border-black/10 dark:border-white/10"
-                icon={<Download size={16} className="text-gray-500" />}
-              >
-                Download Sponsorship Deck
-              </InteractiveButton>
-              <span className="absolute bottom-[-32px] left-1/2 transform -translate-x-1/2 bg-black border border-white/10 text-[9px] font-mono rounded px-2.5 py-1 text-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-50">
-                Coming Soon
-              </span>
-            </div>
+            {/* Download Deck */}
+            <InteractiveButton
+              variant="glass"
+              size="lg"
+              onClick={() => {
+                window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Request%20for%20Sponsorship%20Deck";
+              }}
+              icon={<Download size={16} className="text-[#B5B5B5]" />}
+            >
+              Download Sponsorship Deck
+            </InteractiveButton>
 
             {/* Attendee Registration COMING SOON */}
             <div className="relative group">

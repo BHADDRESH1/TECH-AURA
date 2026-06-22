@@ -38,6 +38,22 @@ export default function CallToAction() {
       return;
     }
     setErrorMessage('');
+    
+    const subject = `TECH AURA 2026 - Sponsorship Enquiry`;
+    const body = `Hello Team,
+
+We would like to submit a sponsorship/stall request for Tech Aura 2026:
+
+Company Name: ${formData.companyName}
+Industry/Sector: ${formData.industrySector}
+Representative Name: ${formData.representativeName}
+Business Email: ${formData.contactEmail}
+Interest Tier: ${formData.interestTier}
+Message: ${formData.customMessage}
+
+Please contact us with details.`;
+
+    window.location.href = `mailto:info@dominova.tech?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setFormSubmitted(true);
   };
 
@@ -70,20 +86,10 @@ export default function CallToAction() {
               variant="primary-gold"
               size="lg"
               onClick={() => {
-                window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20Sponsorship%20Enquiry";
+                window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Sponsorship%20Enquiry";
               }}
             >
               Become Sponsor
-            </InteractiveButton>
-
-            <InteractiveButton
-              variant="primary-cyan"
-              size="lg"
-              onClick={() => {
-                window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20Startup%20Stall%20Booking";
-              }}
-            >
-              Reserve Startup Stall
             </InteractiveButton>
 
             <InteractiveButton
@@ -91,7 +97,7 @@ export default function CallToAction() {
               size="lg"
               icon={<Calendar size={16} />}
               onClick={() => {
-                window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20Meeting%20Request";
+                window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Meeting%20Request";
               }}
             >
               Schedule Meeting
@@ -100,11 +106,12 @@ export default function CallToAction() {
             <InteractiveButton
               variant="subtle"
               size="lg"
-              disabled
-              className="opacity-50 cursor-not-allowed"
-              icon={<Download size={16} className="text-gray-500" />}
+              icon={<Download size={16} className="text-[#B5B5B5]" />}
+              onClick={() => {
+                window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Request%20for%20Sponsorship%20Deck";
+              }}
             >
-              Coming Soon
+              Download Deck
             </InteractiveButton>
           </div>
 

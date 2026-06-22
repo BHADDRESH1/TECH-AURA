@@ -317,7 +317,6 @@ export default function StartupExhibition() {
       return;
     }
 
-    // Persist to local storage to demonstrate functioning client-side persistence
     const newReservation = {
       id: `res-${Date.now()}`,
       company: bCompany,
@@ -333,6 +332,20 @@ export default function StartupExhibition() {
     saved.push(newReservation);
     localStorage.setItem('tech_aura_startup_reservations', JSON.stringify(saved));
 
+    const subject = `TECH AURA 2026 - Startup Stall Reservation`;
+    const body = `Hello Team,
+
+We would like to reserve a startup stall for Tech Aura 2026:
+
+Company Name: ${bCompany}
+Chief Founder: ${bFounder}
+Contact Email: ${bEmail}
+Selected Placement Tier: ${bTier}
+Startup Description / Pitch: ${bPitch}
+
+Please contact us with layout availability and onboarding guidelines.`;
+
+    window.location.href = `mailto:info@dominova.tech?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setBookingStatus('success');
   };
 
@@ -415,24 +428,22 @@ export default function StartupExhibition() {
               size="lg" 
               className="w-full sm:w-auto"
               icon={<ArrowRight size={16} className="text-black" />}
-              onClick={() => { window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20Startup%20Stall%20Booking"; }}
+              onClick={() => { window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Startup%20Stall%20Booking"; }}
               id="startup-hero-btn-book"
             >
               Book Startup Stall
             </InteractiveButton>
 
-            <div className="relative group w-full sm:w-auto">
-              <button 
-                disabled
-                className="w-full sm:w-auto px-8 py-4 rounded-full border border-white/5 bg-white/[0.01] text-gray-500 text-base font-semibold cursor-not-allowed flex items-center justify-center gap-2"
-                id="startup-hero-btn-disabled"
-              >
-                <Download size={16} /> Coming Soon
-              </button>
-              <span className="absolute bottom-[-24px] left-1/2 transform -translate-x-1/2 bg-black border border-white/10 text-[9px] font-mono rounded px-2 py-0.5 text-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                Coming Soon
-              </span>
-            </div>
+            <InteractiveButton 
+              variant="glass" 
+              size="lg" 
+              className="w-full sm:w-auto"
+              icon={<Download size={16} className="text-[#B5B5B5]" />}
+              onClick={() => { window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Request%20for%20Exhibition%20Brochure"; }}
+              id="startup-hero-btn-download"
+            >
+              Download Brochure
+            </InteractiveButton>
           </motion.div>
 
           {/* Trust Footprint */}
@@ -905,7 +916,7 @@ export default function StartupExhibition() {
                     <InteractiveButton variant="primary-gold" size="sm" onClick={() => resetBookingForm()}>
                       Reserve Another
                     </InteractiveButton>
-                    <a href="mailto:info@dominova.tech" className="text-xs text-gray-400 hover:text-white transition-colors underline">
+                    <a href="mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Startup%20Stall%20Reservation%20Verification" className="text-xs text-gray-400 hover:text-white transition-colors underline">
                       Verify via Email
                     </a>
                   </div>
@@ -1112,7 +1123,7 @@ export default function StartupExhibition() {
               <InteractiveButton 
                 variant="primary-gold" 
                 size="md" 
-                onClick={() => { window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20Startup%20Stall%20Reservation"; }}
+                onClick={() => { window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Startup%20Stall%20Reservation"; }}
                 className="w-full text-xs font-bold uppercase tracking-wider h-14"
               >
                 Reserve Startup Stall
@@ -1122,7 +1133,7 @@ export default function StartupExhibition() {
             {/* CTA 2: Schedule Meeting */}
             <div className="flex flex-col">
               <a 
-                href="mailto:info@dominova.tech?subject=TECH%20AURA%202026%20Meeting%20Request"
+                href="mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Meeting%20Request"
                 className="w-full"
               >
                 <InteractiveButton 
@@ -1155,12 +1166,15 @@ export default function StartupExhibition() {
 
             {/* CTA 4: Download Sponsorship Deck */}
             <div className="flex flex-col">
-              <button 
-                disabled
-                className="w-full text-xs font-bold uppercase tracking-wider h-14 border border-white/5 bg-white/[0.01] text-gray-500 cursor-not-allowed flex items-center justify-center gap-2 rounded-xl opacity-50"
+              <InteractiveButton 
+                variant="glass" 
+                size="md" 
+                className="w-full text-xs font-bold uppercase tracking-wider h-14"
+                icon={<Download size={14} className="text-[#B5B5B5]" />}
+                onClick={() => { window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Request%20for%20Sponsorship%20Deck"; }}
               >
-                <FileText size={14} className="text-gray-500" /> Coming Soon
-              </button>
+                Download Deck
+              </InteractiveButton>
             </div>
           </motion.div>
 

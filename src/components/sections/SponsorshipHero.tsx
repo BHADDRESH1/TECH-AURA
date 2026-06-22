@@ -109,7 +109,7 @@ export default function SponsorshipHero() {
               variant="primary-gold"
               size="lg"
               onClick={() => {
-                window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20Sponsorship%20Enquiry";
+                window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Sponsorship%20Enquiry";
               }}
             >
               Become Partner Sponsor
@@ -118,11 +118,12 @@ export default function SponsorshipHero() {
             <InteractiveButton
               variant="glass"
               size="lg"
-              disabled
-              className="opacity-50 cursor-not-allowed"
-              icon={<Download size={16} className="text-gray-500" />}
+              onClick={() => {
+                window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Request%20for%20Sponsorship%20Deck";
+              }}
+              icon={<Download size={16} className="text-[#B5B5B5]" />}
             >
-              Coming Soon
+              Download Sponsorship Deck
             </InteractiveButton>
           </motion.div>
         </div>

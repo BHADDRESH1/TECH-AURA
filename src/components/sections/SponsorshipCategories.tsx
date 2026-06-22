@@ -191,7 +191,7 @@ export default function SponsorshipCategories() {
   const filteredCategories = CATEGORIES.filter(cat => cat.tier === activeTier);
 
   const handleApplyNow = (category: string) => {
-    alert(`System Message: Request to establish alliance for "${category}" recognized. Executive documents and transaction instructions have been mapped for delivery.`);
+    window.location.href = `mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Sponsorship%20Enquiry&body=Hello%20Team,%0A%0AI%20am%20interested%20in%20becoming%20a%20partner%20for%20the%20"${encodeURIComponent(category)}"%20sponsorship%20tier.%20Please%20send%20us%20the%20agreement%20and%20next%20steps.%0A%0ARegards`;
   };
 
   return (

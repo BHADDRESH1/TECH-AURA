@@ -69,7 +69,7 @@ export default function SponsorshipCTA() {
         >
           {/* Main Sponsor Button */}
           <a
-            href="mailto:info@dominova.tech?subject=TECH%20AURA%202026%20Sponsorship%20Enquiry"
+            href="mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Sponsorship%20Enquiry"
             className="flex flex-col items-center justify-between p-5 bg-white/[0.01] hover:bg-white/[0.03] border border-[#D4AF37]/20 hover:border-[#D4AF37]/60 rounded-2xl transition-all duration-300 text-center cursor-pointer group"
           >
             <div className="p-3 bg-[#D4AF37]/5 text-[#D4AF37] rounded-xl mb-4 group-hover:scale-105 transition-transform duration-300">
@@ -82,22 +82,22 @@ export default function SponsorshipCTA() {
           </a>
 
           {/* Download Deck Button */}
-          <button
-            disabled
-            className="flex flex-col items-center justify-between p-5 bg-white/[0.01] border border-white/5 rounded-2xl text-center opacity-50 cursor-not-allowed group"
+          <a
+            href="mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Request%20for%20Sponsorship%20Deck"
+            className="flex flex-col items-center justify-between p-5 bg-white/[0.01] hover:bg-white/[0.03] border border-white/5 hover:border-white/25 rounded-2xl transition-all duration-300 text-center cursor-pointer group"
           >
-            <div className="p-3 bg-gray-500/5 text-gray-500 rounded-xl mb-4">
+            <div className="p-3 bg-gray-500/5 text-white rounded-xl mb-4 group-hover:scale-105 transition-transform duration-300">
               <Download size={20} />
             </div>
             <div>
-              <span className="block font-heading font-bold text-xs text-gray-500 uppercase tracking-wider">Coming Soon</span>
+              <span className="block font-heading font-bold text-xs text-white uppercase tracking-wider">Download Deck</span>
               <span className="block text-[8px] font-mono text-gray-500 uppercase tracking-widest mt-1">Sponsoring prospectus</span>
             </div>
-          </button>
+          </a>
 
           {/* Schedule Meeting Button */}
           <a
-            href="mailto:info@dominova.tech?subject=TECH%20AURA%202026%20Meeting%20Request"
+            href="mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Meeting%20Request"
             className="flex flex-col items-center justify-between p-5 bg-white/[0.01] hover:bg-white/[0.03] border border-white/5 hover:border-white/25 rounded-2xl transition-all duration-300 text-center cursor-pointer group"
           >
             <div className="p-3 bg-purple-500/5 text-[#8F00FF] rounded-xl mb-4 group-hover:scale-105 transition-transform duration-300">
@@ -111,7 +111,7 @@ export default function SponsorshipCTA() {
 
           {/* Reserve Startup Stall Button */}
           <a
-            href="mailto:info@dominova.tech?subject=TECH%20AURA%202026%20Startup%20Stall%20Reservation"
+            href="mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Startup%20Stall%20Reservation"
             className="flex flex-col items-center justify-between p-5 bg-white/[0.01] hover:bg-white/[0.03] border border-white/5 hover:border-white/25 rounded-2xl transition-all duration-300 text-center cursor-pointer group"
           >
             <div className="p-3 bg-emerald-500/5 text-emerald-400 rounded-xl mb-4 group-hover:scale-105 transition-transform duration-300">

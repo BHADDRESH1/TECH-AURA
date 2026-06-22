@@ -118,7 +118,7 @@ export default function SponsorContact() {
                   variant="primary-gold"
                   className="w-full text-xs py-3.5 flex items-center justify-center gap-2 font-mono uppercase tracking-wider"
                   icon={<ArrowUpRight size={14} className="text-black" />}
-                  onClick={() => window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20Sponsorship%20Enquiry"}
+                  onClick={() => window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Sponsorship%20Enquiry"}
                 >
                   Become Sponsor
                 </InteractiveButton>
@@ -127,13 +127,13 @@ export default function SponsorContact() {
                   variant="glass"
                   className="w-full text-xs py-3.5 flex items-center justify-center gap-2 font-mono uppercase tracking-wider text-white border-white/10 hover:bg-white/[0.02]"
                   icon={<ArrowUpRight size={14} className="text-[#00C2FF]" />}
-                  onClick={() => window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20Startup%20Stall%20Booking"}
+                  onClick={() => window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Startup%20Stall%20Booking"}
                 >
                   Reserve Startup Stall
                 </InteractiveButton>
 
                 <a
-                  href="mailto:info@dominova.tech?subject=TECH%20AURA%202026%20Meeting%20Request"
+                  href="mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Meeting%20Request"
                   className="w-full py-3 px-4 rounded-xl border border-white/5 text-gray-300 font-mono text-center text-xs tracking-wider uppercase bg-[#111] hover:bg-white/[0.02] transition-all flex items-center justify-center gap-2 hover:border-white/15"
                 >
                   <Calendar size={13} /> Schedule Meeting

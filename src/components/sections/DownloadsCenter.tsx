@@ -5,7 +5,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Download, FileText, Image, FolderArchive, BookOpen, Clock, CheckCircle2, Sparkles, AlertCircle } from 'lucide-react';
+import { Download, FileText, Image, FolderArchive, BookOpen, Clock, CheckCircle2, Sparkles, AlertCircle, Mail } from 'lucide-react';
 import GlassCard from '../ui/GlassCard';
 import SectionContainer from '../ui/SectionContainer';
 import InteractiveButton from '../ui/InteractiveButton';
@@ -214,12 +214,29 @@ export default function DownloadsCenter() {
                       <Download size={14} /> DOWNLOAD DOCUMENT
                     </InteractiveButton>
                   ) : (
-                    <button
-                      disabled
-                      className="w-full border border-white/5 bg-white/[0.01] text-gray-500 text-xs font-semibold py-3 rounded-xl flex items-center justify-center gap-2 cursor-not-allowed uppercase"
+                    <InteractiveButton
+                      variant="glass"
+                      className="w-full text-xs font-mono py-2.5 flex items-center justify-center gap-2 border-white/10"
+                      onClick={() => {
+                        let subject = "";
+                        if (item.id === 'sponsor-deck') {
+                          subject = "TECH AURA 2026 - Request for Sponsorship Deck";
+                        } else if (item.id === 'event-poster') {
+                          subject = "TECH AURA 2026 - Request for Event Poster";
+                        } else if (item.id === 'brochure') {
+                          subject = "TECH AURA 2026 - Request for Exhibition Brochure";
+                        } else if (item.id === 'media-kit') {
+                          subject = "TECH AURA 2026 - Request for Media Press Kit";
+                        } else if (item.id === 'rulebook') {
+                          subject = "TECH AURA 2026 - Request for Event Rulebook";
+                        } else {
+                          subject = `TECH AURA 2026 - Request for ${item.title}`;
+                        }
+                        window.location.href = `mailto:info@dominova.tech?subject=${encodeURIComponent(subject)}`;
+                      }}
                     >
-                      <Clock size={14} /> Coming Soon
-                    </button>
+                      <Mail size={14} className="text-[#00C2FF]" /> REQUEST VIA EMAIL
+                    </InteractiveButton>
                   )}
                 </div>
               </GlassCard>

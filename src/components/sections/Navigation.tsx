@@ -98,21 +98,18 @@ export default function Navigation({ currentView, onViewChange }: NavigationProp
 
           {/* Right Side Actions */}
           <div className="hidden md:flex items-center gap-4">
-            {/* Download Deck (Disabled with Tooltip) */}
-            <div className="relative group">
-              <InteractiveButton
-                variant="glass"
-                size="sm"
-                disabled
-                className="opacity-50 cursor-not-allowed border-white/10 text-white text-xs py-2 px-4"
-                icon={<Download size={13} className="text-[#B5B5B5]" />}
-              >
-                Download Deck
-              </InteractiveButton>
-              <span className="absolute bottom-[-24px] left-1/2 transform -translate-x-1/2 bg-black border border-white/10 text-[9px] font-mono rounded px-2 py-0.5 text-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-50">
-                Coming Soon
-              </span>
-            </div>
+            {/* Download Deck */}
+            <InteractiveButton
+              variant="glass"
+              size="sm"
+              className="border-white/10 text-white text-xs py-2 px-4"
+              icon={<Download size={13} className="text-[#B5B5B5]" />}
+              onClick={() => {
+                window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Request%20for%20Sponsorship%20Deck";
+              }}
+            >
+              Download Deck
+            </InteractiveButton>
 
             {/* Become Sponsor */}
             <InteractiveButton
@@ -120,7 +117,7 @@ export default function Navigation({ currentView, onViewChange }: NavigationProp
               size="sm"
               className="text-xs py-2 px-4"
               onClick={() => {
-                window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20Sponsorship%20Enquiry";
+                window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Sponsorship%20Enquiry";
               }}
             >
               Become Sponsor
@@ -178,10 +175,13 @@ export default function Navigation({ currentView, onViewChange }: NavigationProp
               <InteractiveButton
                 variant="glass"
                 size="md"
-                className="w-full text-xs opacity-50 cursor-not-allowed"
-                disabled
+                className="w-full text-xs"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Request%20for%20Sponsorship%20Deck";
+                }}
               >
-                Download Deck (Coming Soon)
+                Download Deck
               </InteractiveButton>
               
               <InteractiveButton
@@ -190,7 +190,7 @@ export default function Navigation({ currentView, onViewChange }: NavigationProp
                 className="w-full text-xs"
                 onClick={() => {
                   setMobileMenuOpen(false);
-                  window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20Sponsorship%20Enquiry";
+                  window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Sponsorship%20Enquiry";
                 }}
               >
                 Become Sponsor
