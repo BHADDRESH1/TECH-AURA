@@ -1,0 +1,6 @@
+{
+  "name": "Tech Aura 2026",
+  "description": "A premium, enterprise-grade conference microsite, sponsorship acquisition platform, and national innovation expo portal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
