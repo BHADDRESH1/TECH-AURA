@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useRef, FormEvent } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   Rocket, 
@@ -26,19 +26,9 @@ import {
   Download, 
   Calendar, 
   Mail, 
-  FileText, 
-  CheckCircle, 
   ShieldCheck, 
-  AlertCircle, 
-  Info, 
-  Send,
   Sparkles,
-  Layers,
-  ChevronRight,
-  MapPin,
-  Clock,
-  HelpCircle,
-  X
+  ChevronRight
 } from 'lucide-react';
 
 import SectionContainer from '../ui/SectionContainer';
@@ -291,70 +281,11 @@ const JOURNEY_STEPS: JourneyStep[] = [
 
 export default function StartupExhibition() {
   const [selectedTier, setSelectedTier] = useState<'STANDARD' | 'GROWTH' | 'PREMIUM'>('GROWTH');
-  
-  // Interface state for interactive booking engine
-  const [bCompany, setBCompany] = useState('');
-  const [bFounder, setBFounder] = useState('');
-  const [bEmail, setBEmail] = useState('');
-  const [bTier, setBTier] = useState<'Standard' | 'Growth' | 'Premium'>('Growth');
-  const [bPitch, setBPitch] = useState('');
-  
-  const [bookingStatus, setBookingStatus] = useState<'idle' | 'success'>('idle');
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
-  const bookingFormRef = useRef<HTMLDivElement>(null);
-
   const handleScrollToBooking = (tierName?: 'Standard' | 'Growth' | 'Premium') => {
-    if (tierName) {
-      setBTier(tierName);
-    }
-    bookingFormRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-
-  const handleFormSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    if (!bCompany || !bFounder || !bEmail) {
-      return;
-    }
-
-    const newReservation = {
-      id: `res-${Date.now()}`,
-      company: bCompany,
-      founder: bFounder,
-      email: bEmail,
-      tier: bTier,
-      pitch: bPitch,
-      date: new Date().toISOString(),
-      statusCode: 'PENDING_ADVISORY_CONFIRMATION'
-    };
-
-    const saved = JSON.parse(localStorage.getItem('tech_aura_startup_reservations') || '[]');
-    saved.push(newReservation);
-    localStorage.setItem('tech_aura_startup_reservations', JSON.stringify(saved));
-
-    const subject = `TECH AURA 2026 - Startup Stall Reservation`;
-    const body = `Hello Team,
-
-We would like to reserve a startup stall for Tech Aura 2026:
-
-Company Name: ${bCompany}
-Chief Founder: ${bFounder}
-Contact Email: ${bEmail}
-Selected Placement Tier: ${bTier}
-Startup Description / Pitch: ${bPitch}
-
-Please contact us with layout availability and onboarding guidelines.`;
-
-    window.location.href = `mailto:info@dominova.tech?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setBookingStatus('success');
-  };
-
-  const resetBookingForm = () => {
-    setBCompany('');
-    setBFounder('');
-    setBEmail('');
-    setBPitch('');
-    setBookingStatus('idle');
+    const subject = `TECH AURA 2026 - Startup Stall Booking${tierName ? ` (${tierName} Tier)` : ''}`;
+    window.location.href = `mailto:info@dominova.tech?subject=${encodeURIComponent(subject)}`;
   };
 
   const faqs = [
@@ -852,172 +783,7 @@ Please contact us with layout availability and onboarding guidelines.`;
         </div>
       </SectionContainer>
 
-      {/* -------------------------------------------------------------
-          INTERACTIVE RESERVATION FORM MODULE
-         ------------------------------------------------------------- */}
-      <section ref={bookingFormRef} className="relative py-20 bg-[#070707] border-b border-white/[0.04]">
-        <AmbientOrb color="purple" size="md" className="top-10 left-10 opacity-15" />
-        <AmbientOrb color="cyan" size="md" className="bottom-10 right-10 opacity-15" />
-        
-        <div className="max-w-[1400px] mx-auto px-6 sm:px-8 md:px-12 lg:px-16 relative z-10">
-          <div className="max-w-4xl mx-auto mb-12 text-center">
-            <span className="text-[11px] font-mono tracking-widest text-purple-400 font-semibold bg-purple-500/10 px-3.5 py-1.5 rounded-full border border-purple-500/20 uppercase">
-              Stall Registrations
-            </span>
-            <h2 className="text-3xl md:text-5xl font-heading font-bold text-white tracking-tight mt-5">
-              Secure Your Staging Plot
-            </h2>
-            <p className="text-sm md:text-base text-[#B5B5B5] leading-relaxed mt-4">
-              Enter your enterprise credentials below to construct your registration profile and lock in desired space footprints on our pavilion layout.
-            </p>
-          </div>
 
-          <div className="max-w-xl mx-auto">
-            <AnimatePresence mode="wait">
-              {bookingStatus === 'success' ? (
-                <motion.div
-                  key="booking-confirmed"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  className="rounded-[24px] p-8 border border-[#22c55e]/20 bg-[#09150f]/80 text-center space-y-6"
-                >
-                  <div className="w-16 h-16 rounded-full bg-[#22c55e]/10 border border-[#22c55e]/20 flex items-center justify-center text-[#22c55e] mx-auto">
-                    <CheckCircle size={32} />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <h3 className="text-2xl font-heading font-extrabold text-white">Stall Reservation Retained</h3>
-                    <p className="text-xs sm:text-sm text-gray-300">
-                      Your interest was successfully recorded in local storage protocols for verification by the Advisory Review Council.
-                    </p>
-                  </div>
-
-                  <div className="p-4 rounded-xl bg-black/40 text-left space-y-2.5 border border-white/5">
-                    <div className="flex justify-between text-2xs font-mono text-gray-400">
-                      <span>ORGANIZATION:</span>
-                      <span className="text-white font-semibold">{bCompany}</span>
-                    </div>
-                    <div className="flex justify-between text-2xs font-mono text-gray-400">
-                      <span>CHIEF FOUNDER:</span>
-                      <span className="text-white font-semibold">{bFounder}</span>
-                    </div>
-                    <div className="flex justify-between text-2xs font-mono text-gray-400">
-                      <span>SELECTED PLACEMENT:</span>
-                      <span className="text-[#D4AF37] font-semibold">{bTier.toUpperCase()}</span>
-                    </div>
-                    <div className="flex justify-between text-2xs font-mono text-gray-400">
-                      <span>ADVISORY SYSTEM STATE:</span>
-                      <span className="text-[#00C2FF] font-semibold">RESERVED_STAGED</span>
-                    </div>
-                  </div>
-
-                  <div className="pt-4 flex items-center justify-center gap-4">
-                    <InteractiveButton variant="primary-gold" size="sm" onClick={() => resetBookingForm()}>
-                      Reserve Another
-                    </InteractiveButton>
-                    <a href="mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Startup%20Stall%20Reservation%20Verification" className="text-xs text-gray-400 hover:text-white transition-colors underline">
-                      Verify via Email
-                    </a>
-                  </div>
-                </motion.div>
-              ) : (
-                <motion.form
-                  key="booking-form"
-                  onSubmit={handleFormSubmit}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="space-y-6 p-8 rounded-[24px] border border-white/5 bg-[#090909]/90 backdrop-blur-md"
-                >
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-[10px] font-mono tracking-widest text-gray-400 uppercase mb-2">Company Name *</label>
-                      <input 
-                        type="text" 
-                        required
-                        value={bCompany}
-                        onChange={(e) => setBCompany(e.target.value)}
-                        placeholder="e.g. Innovate Corp" 
-                        className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#00C2FF] transition-all"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-[10px] font-mono tracking-widest text-gray-400 uppercase mb-2">Founder / Representative *</label>
-                      <input 
-                        type="text" 
-                        required
-                        value={bFounder}
-                        onChange={(e) => setBFounder(e.target.value)}
-                        placeholder="e.g. Dr. Alex Chen" 
-                        className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#00C2FF] transition-all"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-[10px] font-mono tracking-widest text-gray-400 uppercase mb-2">Corporate Email Address *</label>
-                    <input 
-                      type="email" 
-                      required
-                      value={bEmail}
-                      onChange={(e) => setBEmail(e.target.value)}
-                      placeholder="e.g. contact@company.com" 
-                      className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#00C2FF] transition-all"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-[10px] font-mono tracking-widest text-gray-400 uppercase mb-2">Desired Placement Tier</label>
-                    <div className="grid grid-cols-3 gap-3">
-                      {(['Standard', 'Growth', 'Premium'] as const).map((tier) => (
-                        <button
-                          key={tier}
-                          type="button"
-                          onClick={() => setBTier(tier)}
-                          className={`py-3.5 rounded-xl border text-xs font-mono font-bold tracking-wider uppercase transition-all duration-300 ${
-                            bTier === tier 
-                              ? 'bg-white/[0.04] border-[#D4AF37] text-white shadow-[0_0_15px_rgba(212,175,55,0.06)]' 
-                              : 'bg-transparent border-white/5 text-gray-400 hover:border-white/15 hover:text-white'
-                          }`}
-                        >
-                          {tier}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-[10px] font-mono tracking-widest text-gray-400 uppercase mb-2">Describe Your Concept / Prototype (Optional)</label>
-                    <textarea 
-                      value={bPitch}
-                      onChange={(e) => setBPitch(e.target.value)}
-                      placeholder="Explain what hardware or software system you will demonstrate on the main expo floor." 
-                      rows={4}
-                      className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#00C2FF] transition-all resize-none"
-                    />
-                  </div>
-
-                  <div className="flex items-center gap-2 text-2xs font-mono text-gray-500 py-2">
-                    <Info size={11} className="text-[#00C2FF] shrink-0" />
-                    <span>Submitted proposals are stored securely in local browser caches.</span>
-                  </div>
-
-                  <InteractiveButton 
-                    type="submit" 
-                    variant="primary-gold" 
-                    className="w-full py-4 uppercase text-xs tracking-widest"
-                    icon={<Send size={15} />}
-                  >
-                    Submit Reservation Form
-                  </InteractiveButton>
-                </motion.form>
-              )}
-            </AnimatePresence>
-          </div>
-        </div>
-      </section>
 
       {/* -------------------------------------------------------------
           FAQ SUB-SECTION
