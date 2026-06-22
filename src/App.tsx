@@ -38,26 +38,10 @@ import StartupExhibition from './components/startup/StartupExhibition';
 
 export default function App() {
   const [currentView, setCurrentView] = useState<'expo' | 'sponsor' | 'startup'>('expo');
-  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
-    const saved = localStorage.getItem('theme');
-    if (saved === 'dark' || saved === 'light') {
-      return saved;
-    }
-    return 'light'; // Default theme is light
-  });
 
   useEffect(() => {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme(prev => prev === 'light' ? 'dark' : 'light');
-  };
+    document.documentElement.classList.add('dark');
+  }, []);
 
   // Register a defensive custom event listener to facilitate jumping across layouts from deep components
   useEffect(() => {
@@ -87,8 +71,6 @@ export default function App() {
       <Navigation 
         currentView={currentView} 
         onViewChange={handleViewChange} 
-        theme={theme}
-        onToggleTheme={toggleTheme}
       />
 
       {/* Dynamic Content Transitions */}
