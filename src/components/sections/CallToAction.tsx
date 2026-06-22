@@ -70,7 +70,7 @@ export default function CallToAction() {
               variant="primary-gold"
               size="lg"
               onClick={() => {
-                window.dispatchEvent(new CustomEvent('switch-to-view', { detail: 'sponsor' }));
+                window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20Sponsorship%20Enquiry";
               }}
             >
               Become Sponsor
@@ -80,7 +80,7 @@ export default function CallToAction() {
               variant="primary-cyan"
               size="lg"
               onClick={() => {
-                window.dispatchEvent(new CustomEvent('switch-to-view', { detail: 'sponsor' }));
+                window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20Startup%20Stall%20Booking";
               }}
             >
               Reserve Startup Stall
@@ -91,7 +91,7 @@ export default function CallToAction() {
               size="lg"
               icon={<Calendar size={16} />}
               onClick={() => {
-                window.dispatchEvent(new CustomEvent('switch-to-view', { detail: 'sponsor' }));
+                window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20Meeting%20Request";
               }}
             >
               Schedule Meeting
@@ -100,12 +100,11 @@ export default function CallToAction() {
             <InteractiveButton
               variant="subtle"
               size="lg"
-              icon={<Download size={16} className="text-[#D4AF37]" />}
-              onClick={() => {
-                window.dispatchEvent(new CustomEvent('switch-to-view', { detail: 'sponsor' }));
-              }}
+              disabled
+              className="opacity-50 cursor-not-allowed"
+              icon={<Download size={16} className="text-gray-500" />}
             >
-              Download Deck
+              Coming Soon
             </InteractiveButton>
           </div>
 

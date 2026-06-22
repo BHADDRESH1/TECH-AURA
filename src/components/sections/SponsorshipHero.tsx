@@ -108,7 +108,9 @@ export default function SponsorshipHero() {
             <InteractiveButton
               variant="primary-gold"
               size="lg"
-              onClick={() => handleActionRequest('Strategic Partnership')}
+              onClick={() => {
+                window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20Sponsorship%20Enquiry";
+              }}
             >
               Become Partner Sponsor
             </InteractiveButton>
@@ -116,10 +118,11 @@ export default function SponsorshipHero() {
             <InteractiveButton
               variant="glass"
               size="lg"
-              icon={<Download size={16} className="text-[#D4AF37]" />}
-              onClick={() => handleActionRequest('Download Prospectus Deck')}
+              disabled
+              className="opacity-50 cursor-not-allowed"
+              icon={<Download size={16} className="text-gray-500" />}
             >
-              Download Sponsorship Deck
+              Coming Soon
             </InteractiveButton>
           </motion.div>
         </div>

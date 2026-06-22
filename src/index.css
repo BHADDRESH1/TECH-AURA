@@ -135,3 +135,294 @@ body {
   background-size: 24px 24px;
 }
 
+/* -------------------------------------------------------------
+   LIGHT THEME OVERRIDES (Default theme on first load)
+   Enabled by default, disabled when html has class "dark"
+   ------------------------------------------------------------- */
+:root:not(.dark) {
+  --color-bg-base: #F8F9FA;
+  --color-bg-surface: #FFFFFF;
+  --color-accent-gold: #9E7D18;
+  --color-accent-cyan: #007A9E;
+  
+  color-scheme: light;
+}
+
+:root:not(.dark) body {
+  background-color: #F8F9FA !important;
+  color: #121518 !important;
+}
+
+/* Override base background class */
+:root:not(.dark) .bg-\[\#050505\] {
+  background-color: #F8F9FA !important;
+}
+
+:root:not(.dark) .bg-\[\#0D0D0D\]\/45 {
+  background-color: rgba(0, 0, 0, 0.03) !important;
+}
+
+:root:not(.dark) .bg-\[\#0D0D0D\]\/30 {
+  background-color: rgba(0, 0, 0, 0.02) !important;
+}
+
+:root:not(.dark) .bg-\[\#0D0D0D\]\/40 {
+  background-color: rgba(0, 0, 0, 0.025) !important;
+}
+
+:root:not(.dark) .bg-\[\#0b0b0b\]\/60 {
+  background-color: rgba(255, 255, 255, 0.75) !important;
+}
+
+:root:not(.dark) .bg-\[\#0c0c0c\]\/40 {
+  background-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+:root:not(.dark) .bg-\[\#070707\] {
+  background-color: #F1F5F9 !important;
+}
+
+:root:not(.dark) .bg-\[\#090909\] {
+  background-color: #FFFFFF !important;
+}
+
+:root:not(.dark) .bg-\[\#0a0a0a\] {
+  background-color: #FFFFFF !important;
+}
+
+/* Background Gradients */
+:root:not(.dark) .bg-gradient-to-b.from-\[\#050505\].to-\[\#0D0D0D\] {
+  background-image: linear-gradient(to bottom, #F8F9FA, #F1F5F9) !important;
+}
+
+:root:not(.dark) .bg-gradient-to-b.from-\[\#050505\].to-\[\#0a0a14\] {
+  background-image: linear-gradient(to bottom, #F8F9FA, #E2E8F0) !important;
+}
+
+/* Redefine text-white to be dark primary text for contrast */
+:root:not(.dark) .text-white {
+  color: #121518 !important;
+}
+
+:root:not(.dark) .text-gray-450 {
+  color: #4A5568 !important;
+}
+
+:root:not(.dark) .text-gray-400 {
+  color: #5A626A !important;
+}
+
+:root:not(.dark) .text-gray-300 {
+  color: #3D444A !important;
+}
+
+:root:not(.dark) .text-gray-200 {
+  color: #1F2428 !important;
+}
+
+:root:not(.dark) .text-gray-500 {
+  color: #6C757D !important;
+}
+
+/* Hover and active overrides */
+:root:not(.dark) .hover\:text-white:hover {
+  color: #000000 !important;
+}
+
+:root:not(.dark) .hover\:bg-white\/\[0\.04\]:hover {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+
+:root:not(.dark) .bg-white\/10 {
+  background-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+:root:not(.dark) .bg-white\/\[0\.02\] {
+  background-color: rgba(0, 0, 0, 0.02) !important;
+}
+
+:root:not(.dark) .bg-white\/\[0\.03\] {
+  background-color: rgba(0, 0, 0, 0.03) !important;
+}
+
+:root:not(.dark) .bg-white\/\[0\.04\] {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+
+:root:not(.dark) .bg-white\/\[0\.01\] {
+  background-color: rgba(0, 0, 0, 0.01) !important;
+}
+
+/* Borders */
+:root:not(.dark) .border-white\/5 {
+  border-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+:root:not(.dark) .border-white\/10 {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+:root:not(.dark) .border-white\/\[0\.04\] {
+  border-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+:root:not(.dark) .border-white\/\[0\.02\] {
+  border-color: rgba(0, 0, 0, 0.03) !important;
+}
+
+:root:not(.dark) .border-white\/\[0\.05\] {
+  border-color: rgba(0, 0, 0, 0.07) !important;
+}
+
+:root:not(.dark) .divide-white\/\[0\.06\] > * + * {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Glass Card */
+:root:not(.dark) .glass-panel {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border: 1px solid rgba(0, 0, 0, 0.07) !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.03) !important;
+}
+
+:root:not(.dark) .glass-panel-hover:hover {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.05) !important;
+}
+
+:root:not(.dark) .glass-accent-cyan {
+  border-color: rgba(0, 122, 158, 0.25) !important;
+  box-shadow: 0 0 30px rgba(0, 122, 158, 0.04) !important;
+}
+
+:root:not(.dark) .glass-accent-gold {
+  border-color: rgba(158, 125, 24, 0.25) !important;
+  box-shadow: 0 0 30px rgba(158, 125, 24, 0.04) !important;
+}
+
+/* Scrollbar overrides */
+:root:not(.dark) ::-webkit-scrollbar-track {
+  background: #F8F9FA;
+}
+:root:not(.dark) ::-webkit-scrollbar-thumb {
+  background: #E2E8F0;
+  border-color: #F8F9FA;
+}
+:root:not(.dark) ::-webkit-scrollbar-thumb:hover {
+  background: #CBD5E1;
+}
+
+/* Grid Dots overrides */
+:root:not(.dark) .grid-bg {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px) !important;
+}
+
+/* Ambient Orbs */
+:root:not(.dark) [class*="mix-blend-screen"] {
+  mix-blend-mode: multiply !important;
+  opacity: 0.1 !important;
+}
+
+/* Text glow values */
+:root:not(.dark) .text-glow-cyan {
+  text-shadow: 0 0 20px rgba(0, 122, 158, 0.1) !important;
+}
+
+:root:not(.dark) .text-glow-gold {
+  text-shadow: 0 0 20px rgba(158, 125, 24, 0.1) !important;
+}
+
+/* Redefine light colors inside gold/cyan active buttons & tags */
+:root:not(.dark) button.bg-\[\#D4AF37\] {
+  background-color: #9E7D18 !important;
+  color: #FFFFFF !important;
+}
+
+:root:not(.dark) button.bg-\[\#D4AF37\]:hover {
+  background-color: #836712 !important;
+}
+
+:root:not(.dark) button.bg-\[\#00C2FF\] {
+  background-color: #007A9E !important;
+  color: #FFFFFF !important;
+}
+
+:root:not(.dark) button.bg-\[\#00C2FF\]:hover {
+  background-color: #006380 !important;
+}
+
+:root:not(.dark) [class*="bg-[#D4AF37]/10"] {
+  background-color: rgba(158, 125, 24, 0.08) !important;
+  color: #9E7D18 !important;
+  border-color: rgba(158, 125, 24, 0.2) !important;
+}
+
+:root:not(.dark) [class*="bg-[#00C2FF]/10"] {
+  background-color: rgba(0, 122, 158, 0.08) !important;
+  color: #007A9E !important;
+  border-color: rgba(0, 122, 158, 0.2) !important;
+}
+
+/* Glass buttons */
+:root:not(.dark) .bg-white\/\[0\.03\].text-white.border-white\/10 {
+  background-color: rgba(0, 0, 0, 0.02) !important;
+  color: #121518 !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+:root:not(.dark) .bg-white\/\[0\.03\].text-white.border-white\/10:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.22) !important;
+}
+
+/* Form input elements */
+:root:not(.dark) input,
+:root:not(.dark) select,
+:root:not(.dark) textarea {
+  background-color: rgba(0, 0, 0, 0.01) !important;
+  color: #121518 !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+:root:not(.dark) input::placeholder,
+:root:not(.dark) textarea::placeholder {
+  color: #718096 !important;
+}
+
+/* Text Gradients mapping */
+:root:not(.dark) .from-white {
+  --tw-gradient-from: #121518 !important;
+}
+
+:root:not(.dark) .via-white {
+  --tw-gradient-to: #2d3748 !important;
+}
+
+:root:not(.dark) .via-gray-300 {
+  --tw-gradient-to: #4a5568 !important;
+}
+
+:root:not(.dark) .to-gray-500 {
+  --tw-gradient-to: #718096 !important;
+}
+
+:root:not(.dark) .to-white\/70 {
+  --tw-gradient-to: rgba(18, 21, 24, 0.75) !important;
+}
+
+:root:not(.dark) .text-fill-transparent {
+  color: #121518 !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+}
+
+/* Backlights */
+:root:not(.dark) .blur-\[150px\],
+:root:not(.dark) .blur-\[120px\],
+:root:not(.dark) .blur-\[200px\],
+:root:not(.dark) .blur-\[180px\],
+:root:not(.dark) .blur-\[130px\] {
+  opacity: 0.02 !important;
+}
+

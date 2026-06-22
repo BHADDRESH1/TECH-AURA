@@ -5,15 +5,17 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ShieldCheck, Menu, X, ArrowRight, ArrowLeft, Award, Sparkles, Building, Briefcase } from 'lucide-react';
+import { ShieldCheck, Menu, X, ArrowRight, ArrowLeft, Award, Sparkles, Building, Briefcase, Sun, Moon } from 'lucide-react';
 import InteractiveButton from '../ui/InteractiveButton';
 
 interface NavigationProps {
   currentView: 'expo' | 'sponsor' | 'startup';
   onViewChange: (view: 'expo' | 'sponsor' | 'startup') => void;
+  theme: 'light' | 'dark';
+  onToggleTheme: () => void;
 }
 
-export default function Navigation({ currentView, onViewChange }: NavigationProps) {
+export default function Navigation({ currentView, onViewChange, theme, onToggleTheme }: NavigationProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -25,6 +27,24 @@ export default function Navigation({ currentView, onViewChange }: NavigationProp
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleNavClick = (view: 'expo' | 'sponsor' | 'startup', targetId: string) => {
+    setMobileMenuOpen(false);
+    if (currentView !== view) {
+      onViewChange(view);
+      setTimeout(() => {
+        const element = document.getElementById(targetId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  };
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -34,27 +54,29 @@ export default function Navigation({ currentView, onViewChange }: NavigationProp
   };
 
   const expoMenuItems = [
-    { label: 'Overview', target: 'about-section' },
-    { label: 'Timeline', target: 'journey-section' },
-    { label: 'Domains', target: 'domains-section' },
-    { label: 'Audience', target: 'audience-section' },
-    { label: 'Partnerships', target: 'partnership-section' },
+    { label: 'About', target: 'about-section', view: 'expo' as const },
+    { label: 'Timeline', target: 'journey-section', view: 'expo' as const },
+    { label: 'Domains', target: 'domains-section', view: 'expo' as const },
+    { label: 'Audience', target: 'audience-section', view: 'expo' as const },
+    { label: 'Contact', target: 'contact-section', view: 'expo' as const },
   ];
 
   const sponsorMenuItems = [
-    { label: 'Benefits', target: 'why-sponsor-section' },
-    { label: 'Insights', target: 'insights-section' },
-    { label: 'Categories', target: 'categories-section' },
-    { label: 'Matrix', target: 'benefits-matrix-section' },
-    { label: 'Availability', target: 'slot-tracker-section' },
+    { label: 'Benefits', target: 'why-sponsor-section', view: 'sponsor' as const },
+    { label: 'Categories', target: 'categories-section', view: 'sponsor' as const },
+    { label: 'Matrix', target: 'benefits-matrix-section', view: 'sponsor' as const },
+    { label: 'Downloads', target: 'insights-downloads', view: 'sponsor' as const },
+    { label: 'FAQ', target: 'faq-accordions', view: 'sponsor' as const },
+    { label: 'Contact', target: 'final-sponsor-contact', view: 'sponsor' as const },
   ];
 
   const startupMenuItems = [
-    { label: 'Packages', target: 'startup-packages' },
-    { label: 'Benefits', target: 'startup-benefits' },
-    { label: 'Audience', target: 'startup-audience' },
-    { label: 'Why Exhibit', target: 'startup-why' },
-    { label: 'Journey', target: 'startup-journey' },
+    { label: 'Packages', target: 'startup-packages', view: 'startup' as const },
+    { label: 'Benefits', target: 'startup-benefits', view: 'startup' as const },
+    { label: 'Audience', target: 'startup-audience', view: 'startup' as const },
+    { label: 'Why Exhibit', target: 'startup-why', view: 'startup' as const },
+    { label: 'Journey', target: 'startup-journey', view: 'startup' as const },
+    { label: 'Contact', target: 'startup-final-cta', view: 'startup' as const },
   ];
 
   const activeMenuItems = currentView === 'expo' 
@@ -139,7 +161,7 @@ export default function Navigation({ currentView, onViewChange }: NavigationProp
             {activeMenuItems.map((item) => (
               <button
                 key={item.target}
-                onClick={() => scrollToSection(item.target)}
+                onClick={() => handleNavClick(item.view, item.target)}
                 className="px-3 py-1 text-2xs font-mono text-gray-400 hover:text-white rounded-full hover:bg-white/[0.04] transition-all duration-300 cursor-pointer uppercase tracking-wider"
               >
                 {item.label}
@@ -171,6 +193,15 @@ export default function Navigation({ currentView, onViewChange }: NavigationProp
 
           {/* Action Button CTA */}
           <div className="hidden md:flex items-center gap-4">
+            {/* Theme Toggle Button */}
+            <button
+              onClick={onToggleTheme}
+              className="p-2.5 rounded-full bg-white/[0.02] border border-white/5 text-gray-400 hover:text-white hover:bg-white/[0.05] transition-all cursor-pointer flex items-center justify-center"
+              aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
+            >
+              {theme === 'light' ? <Moon size={15} /> : <Sun size={15} />}
+            </button>
+
             {currentView === 'expo' ? (
               <InteractiveButton
                 variant="primary-gold"
@@ -270,7 +301,7 @@ export default function Navigation({ currentView, onViewChange }: NavigationProp
                   {activeMenuItems.map((item) => (
                     <button
                       key={item.target}
-                      onClick={() => scrollToSection(item.target)}
+                      onClick={() => handleNavClick(item.view, item.target)}
                       className="text-left text-sm font-heading font-medium text-gray-300 hover:text-white transition-all py-2 px-3 rounded-md hover:bg-white/[0.02]"
                     >
                       {item.label}
@@ -282,9 +313,19 @@ export default function Navigation({ currentView, onViewChange }: NavigationProp
             </div>
 
             <div className="flex flex-col gap-4 mt-8">
-              <div className="flex items-center gap-2 py-3 px-4 bg-white/[0.01] border border-white/5 rounded-xl">
-                <ShieldCheck size={16} className="text-[#D4AF37]" />
-                <span className="text-[11px] text-gray-400 font-mono">Official Strategic Collaboration Portal</span>
+              <div className="flex items-center justify-between py-3 px-4 bg-white/[0.01] border border-white/5 rounded-xl">
+                <div className="flex items-center gap-2">
+                  <ShieldCheck size={16} className="text-[#D4AF37]" />
+                  <span className="text-[11px] text-gray-400 font-mono">Official Strategic Collaboration Portal</span>
+                </div>
+                {/* Theme Toggle Button for Mobile */}
+                <button
+                  onClick={onToggleTheme}
+                  className="p-2 rounded-lg bg-white/[0.02] border border-white/5 text-gray-400 hover:text-white"
+                  aria-label="Toggle theme"
+                >
+                  {theme === 'light' ? <Moon size={14} className="text-gray-450" /> : <Sun size={14} className="text-[#D4AF37]" />}
+                </button>
               </div>
               <InteractiveButton
                 variant={currentView === 'startup' ? 'primary-gold' : 'glass'}

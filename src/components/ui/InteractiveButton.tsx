@@ -15,6 +15,7 @@ interface InteractiveButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>
   className?: string;
   id?: string;
   type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
 }
 
 export default function InteractiveButton({

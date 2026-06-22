@@ -415,7 +415,7 @@ export default function StartupExhibition() {
               size="lg" 
               className="w-full sm:w-auto"
               icon={<ArrowRight size={16} className="text-black" />}
-              onClick={() => handleScrollToBooking()}
+              onClick={() => { window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20Startup%20Stall%20Booking"; }}
               id="startup-hero-btn-book"
             >
               Book Startup Stall
@@ -427,7 +427,7 @@ export default function StartupExhibition() {
                 className="w-full sm:w-auto px-8 py-4 rounded-full border border-white/5 bg-white/[0.01] text-gray-500 text-base font-semibold cursor-not-allowed flex items-center justify-center gap-2"
                 id="startup-hero-btn-disabled"
               >
-                <Download size={16} /> Showcase Brochure
+                <Download size={16} /> Coming Soon
               </button>
               <span className="absolute bottom-[-24px] left-1/2 transform -translate-x-1/2 bg-black border border-white/10 text-[9px] font-mono rounded px-2 py-0.5 text-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
                 Coming Soon
@@ -1112,7 +1112,7 @@ export default function StartupExhibition() {
               <InteractiveButton 
                 variant="primary-gold" 
                 size="md" 
-                onClick={() => handleScrollToBooking()}
+                onClick={() => { window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20Startup%20Stall%20Reservation"; }}
                 className="w-full text-xs font-bold uppercase tracking-wider h-14"
               >
                 Reserve Startup Stall
@@ -1122,7 +1122,7 @@ export default function StartupExhibition() {
             {/* CTA 2: Schedule Meeting */}
             <div className="flex flex-col">
               <a 
-                href="mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Schedule%20Advisory%20Meeting"
+                href="mailto:info@dominova.tech?subject=TECH%20AURA%202026%20Meeting%20Request"
                 className="w-full"
               >
                 <InteractiveButton 
@@ -1139,7 +1139,7 @@ export default function StartupExhibition() {
             {/* CTA 3: Contact Team */}
             <div className="flex flex-col">
               <a 
-                href="mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20General%20Exhibition%20Inquiry"
+                href="mailto:info@dominova.tech"
                 className="w-full"
               >
                 <InteractiveButton 
@@ -1155,19 +1155,12 @@ export default function StartupExhibition() {
 
             {/* CTA 4: Download Sponsorship Deck */}
             <div className="flex flex-col">
-              <a 
-                href="mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Sponsorship%20Deck%20Request"
-                className="w-full"
+              <button 
+                disabled
+                className="w-full text-xs font-bold uppercase tracking-wider h-14 border border-white/5 bg-white/[0.01] text-gray-500 cursor-not-allowed flex items-center justify-center gap-2 rounded-xl opacity-50"
               >
-                <InteractiveButton 
-                  variant="subtle" 
-                  size="md" 
-                  className="w-full text-xs font-bold uppercase tracking-wider h-14 border border-white/5 hover:border-white/10 hover:bg-white/[0.01]"
-                  icon={<FileText size={14} className="text-gray-400" />}
-                >
-                  Download Deck
-                </InteractiveButton>
-              </a>
+                <FileText size={14} className="text-gray-500" /> Coming Soon
+              </button>
             </div>
           </motion.div>
 

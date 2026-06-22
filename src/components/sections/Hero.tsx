@@ -137,7 +137,7 @@ export default function Hero() {
               variant="primary-gold"
               size="lg"
               onClick={() => {
-                window.dispatchEvent(new CustomEvent('switch-to-view', { detail: 'sponsor' }));
+                window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20Sponsorship%20Enquiry";
               }}
             >
               Become Sponsor
@@ -147,7 +147,7 @@ export default function Hero() {
               variant="primary-cyan"
               size="lg"
               onClick={() => {
-                window.dispatchEvent(new CustomEvent('switch-to-view', { detail: 'sponsor' }));
+                window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20Startup%20Stall%20Booking";
               }}
             >
               Book Startup Stall
@@ -156,12 +156,11 @@ export default function Hero() {
             <InteractiveButton
               variant="glass"
               size="lg"
-              icon={<Download size={16} className="text-[#D4AF37]" />}
-              onClick={() => {
-                window.dispatchEvent(new CustomEvent('switch-to-view', { detail: 'sponsor' }));
-              }}
+              disabled
+              className="opacity-50 cursor-not-allowed"
+              icon={<Download size={16} className="text-gray-500" />}
             >
-              Download Sponsorship Deck
+              Coming Soon
             </InteractiveButton>
           </motion.div>
 

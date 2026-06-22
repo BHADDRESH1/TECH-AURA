@@ -28,24 +28,22 @@ const DOWNLOADS_DATA: DownloadItem[] = [
     id: 'sponsor-deck',
     title: 'Sponsorship Deck',
     description: 'Explore our complete core alignment matrix, branding assets, pavilion maps, and strategic corporate tier details.',
-    status: 'available',
-    statusBadge: 'AVAILABLE',
-    size: '4.8 MB',
+    status: 'development',
+    statusBadge: 'COMING SOON',
+    size: '--',
     format: 'PDF Document',
     icon: FileText,
-    fileUrl: '#downloads',
     accent: 'gold'
   },
   {
     id: 'event-poster',
     title: 'Event Poster',
     description: 'High-resolution official campaign poster designed for digital showcase and academic notice board exhibits.',
-    status: 'available',
-    statusBadge: 'AVAILABLE',
-    size: '12.4 MB',
+    status: 'development',
+    statusBadge: 'COMING SOON',
+    size: '--',
     format: 'PNG Archive',
     icon: Image,
-    fileUrl: '#downloads',
     accent: 'cyan'
   },
   {
@@ -220,7 +218,7 @@ export default function DownloadsCenter() {
                       disabled
                       className="w-full border border-white/5 bg-white/[0.01] text-gray-500 text-xs font-semibold py-3 rounded-xl flex items-center justify-center gap-2 cursor-not-allowed uppercase"
                     >
-                      <Clock size={14} /> UNDER DEVELOPMENT
+                      <Clock size={14} /> Coming Soon
                     </button>
                   )}
                 </div>
