@@ -108,24 +108,36 @@ export default function Footer() {
               Strategic Partner
             </h4>
             
-            <div className="p-5 rounded-xl bg-[#090909] border border-white/5 relative group overflow-hidden">
+            <div className="p-5 rounded-xl bg-[#090909] border border-white/5 relative group overflow-hidden space-y-4">
               <div className="absolute top-0 right-0 p-3 text-white/5 group-hover:text-[#00C2FF]/10 transition-colors">
                 <ShieldCheck size={40} />
               </div>
               
               <div className="space-y-3">
-                <div className="flex items-center gap-2">
-                  <span className="text-[9px] font-mono tracking-widest text-gray-500 uppercase font-bold">Innovation Strategic Partner</span>
-                </div>
-                
-                {/* Labeled Dominova logo only */}
-                <div>
-                  <span className="text-lg font-heading font-black tracking-widest text-white block">
-                    DOMINOVA
-                  </span>
+                <div className="flex flex-col gap-2">
+                  <img 
+                    src="/logos/dominova-logo.png" 
+                    alt="Dominova Logo" 
+                    className="h-6 w-auto object-contain"
+                  />
                   <span className="text-[9px] font-mono tracking-tight text-[#00C2FF] font-semibold uppercase block mt-1">
-                    Strategy Alliance Support
+                    Innovation Strategic Partner
                   </span>
+                </div>
+              </div>
+
+              <div className="pt-3 border-t border-white/5 space-y-2 text-[11px] font-mono">
+                <div className="flex items-center gap-2 text-[#B5B5B5]">
+                  <span>📧</span>
+                  <a href="mailto:info@dominova.tech" className="hover:text-white transition-colors">
+                    info@dominova.tech
+                  </a>
+                </div>
+                <div className="flex items-center gap-2 text-[#B5B5B5]">
+                  <span>📞</span>
+                  <a href="tel:+919025092699" className="hover:text-white transition-colors">
+                    +91 90250 92699
+                  </a>
                 </div>
               </div>
             </div>

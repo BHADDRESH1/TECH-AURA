@@ -119,7 +119,12 @@ export default function SponsorshipHero() {
               variant="glass"
               size="lg"
               onClick={() => {
-                window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Request%20for%20Sponsorship%20Deck";
+                const a = document.createElement('a');
+                a.href = '/downloads/TECH_AURA_2026_Corporate_Sponsorship_Deck.pdf';
+                a.download = 'TECH_AURA_2026_Corporate_Sponsorship_Deck.pdf';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
               }}
               icon={<Download size={16} className="text-[#B5B5B5]" />}
             >

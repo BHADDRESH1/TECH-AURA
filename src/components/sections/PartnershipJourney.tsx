@@ -14,13 +14,26 @@ export default function PartnershipJourney() {
 
   return (
     <SectionContainer id="partnership-section" className="bg-[#0D0D0D]/40">
-      <div className="text-center max-w-3xl mx-auto mb-16">
+      <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center">
         <span className="text-[11px] font-mono tracking-widest text-[#D4AF37] font-semibold bg-[#D4AF37]/10 px-3 py-1 rounded-full border border-[#D4AF37]/20 uppercase">
           Collaborative Process
         </span>
         <h2 className="text-3xl md:text-5xl font-heading font-bold text-white tracking-tight mt-3">
           Partnership Journey
         </h2>
+        
+        {/* Dominova Logo Integration */}
+        <div className="flex flex-col items-center gap-1.5 mt-5 mb-2">
+          <img 
+            src="/logos/dominova-logo.png" 
+            alt="Dominova Logo" 
+            className="h-6 w-auto object-contain"
+          />
+          <span className="text-[9px] font-mono tracking-tight text-[#00C2FF] font-semibold uppercase block">
+            Innovation Strategic Partner
+          </span>
+        </div>
+
         <p className="text-sm sm:text-base text-[#B5B5B5] leading-relaxed mt-4">
           A systematic framework mapping investor integration, CSR compliance allocations, and corporate brand positioning from agreement to detailed analytics reporting.
         </p>

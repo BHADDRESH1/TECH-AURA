@@ -69,31 +69,46 @@ export default function SponsorContact() {
               <div className="p-5 rounded-2xl border border-white/5 bg-white/[0.01] space-y-3">
                 <span className="block text-[8px] font-mono text-gray-500 uppercase tracking-widest">Innovation Strategic Partner</span>
                 
-                <div className="space-y-1">
-                  <span className="text-sm font-heading font-black text-[#00C2FF] tracking-wide block uppercase">Dominova</span>
-                  <span className="text-[10px] text-gray-400 font-mono block">Technology Alliance Support</span>
+                <div className="space-y-2">
+                  <img 
+                    src="/logos/dominova-logo.png" 
+                    alt="Dominova Logo" 
+                    className="h-6 w-auto object-contain"
+                  />
+                  <span className="text-[9px] font-mono tracking-tight text-[#00C2FF] font-semibold uppercase block">
+                    Innovation Strategic Partner
+                  </span>
                 </div>
-                
-                <span className="inline-block text-[8.5px] font-mono text-[#00C2FF] px-2 py-0.5 rounded bg-[#00C2FF]/5 border border-[#00C2FF]/10 uppercase font-bold">
-                  Strategic Coordinator
-                </span>
               </div>
 
             </div>
 
-            {/* Official email details */}
-            <div className="flex items-center gap-4 py-3 px-5 rounded-xl bg-white/[0.01] border border-white/5 w-fit">
-              <div className="p-2 bg-white/[0.02] border border-white/5 text-[#D4AF37] rounded-lg">
-                <Mail size={16} />
+            {/* Official contact details */}
+            <div className="flex flex-wrap gap-6 py-3 px-5 rounded-xl bg-white/[0.01] border border-white/5 w-fit items-center">
+              <div className="flex items-center gap-3">
+                <span className="text-sm">📧</span>
+                <div>
+                  <span className="block text-[8px] font-mono tracking-wider text-gray-500 uppercase">OFFICIAL EMAIL</span>
+                  <a 
+                    href="mailto:info@dominova.tech" 
+                    className="text-xs sm:text-sm font-mono font-extrabold text-white hover:text-[#00C2FF] transition-colors block"
+                  >
+                    info@dominova.tech
+                  </a>
+                </div>
               </div>
-              <div>
-                <span className="block text-[8px] font-mono tracking-wider text-gray-500 uppercase">OFFICIAL EMAIL CHANNELS</span>
-                <a 
-                  href="mailto:info@dominova.tech" 
-                  className="text-xs sm:text-sm font-mono font-extrabold text-white hover:text-[#00C2FF] transition-colors block"
-                >
-                  info@dominova.tech
-                </a>
+              <span className="text-gray-700 hidden sm:inline">|</span>
+              <div className="flex items-center gap-3">
+                <span className="text-sm">📞</span>
+                <div>
+                  <span className="block text-[8px] font-mono tracking-wider text-gray-500 uppercase">PHONE</span>
+                  <a 
+                    href="tel:+919025092699" 
+                    className="text-xs sm:text-sm font-mono font-extrabold text-white hover:text-[#00C2FF] transition-colors block"
+                  >
+                    +91 90250 92699
+                  </a>
+                </div>
               </div>
             </div>
 

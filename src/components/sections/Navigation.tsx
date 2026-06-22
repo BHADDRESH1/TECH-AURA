@@ -105,7 +105,12 @@ export default function Navigation({ currentView, onViewChange }: NavigationProp
               className="border-white/10 text-white text-xs py-2 px-4"
               icon={<Download size={13} className="text-[#B5B5B5]" />}
               onClick={() => {
-                window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Request%20for%20Sponsorship%20Deck";
+                const a = document.createElement('a');
+                a.href = '/downloads/TECH_AURA_2026_Corporate_Sponsorship_Deck.pdf';
+                a.download = 'TECH_AURA_2026_Corporate_Sponsorship_Deck.pdf';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
               }}
             >
               Download Deck
@@ -178,7 +183,12 @@ export default function Navigation({ currentView, onViewChange }: NavigationProp
                 className="w-full text-xs"
                 onClick={() => {
                   setMobileMenuOpen(false);
-                  window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Request%20for%20Sponsorship%20Deck";
+                  const a = document.createElement('a');
+                  a.href = '/downloads/TECH_AURA_2026_Corporate_Sponsorship_Deck.pdf';
+                  a.download = 'TECH_AURA_2026_Corporate_Sponsorship_Deck.pdf';
+                  document.body.appendChild(a);
+                  a.click();
+                  document.body.removeChild(a);
                 }}
               >
                 Download Deck

@@ -106,11 +106,18 @@ export default function Hero() {
             </span>
           </div>
           <span className="text-gray-650 font-light hidden sm:inline">|</span>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             <span className="text-gray-500 font-medium">Innovation Partner</span>
-            <span className="text-white dark:text-white font-extrabold flex items-center gap-1">
-              <Building2 size={11} className="text-[#00C2FF]" /> DOMINOVA
-            </span>
+            <div className="flex flex-col items-start">
+              <img 
+                src="/logos/dominova-logo.png" 
+                alt="Dominova Logo" 
+                className="h-6 w-auto object-contain"
+              />
+              <span className="text-[6px] font-mono tracking-widest text-[#00C2FF] font-semibold uppercase mt-0.5">
+                Innovation Strategic Partner
+              </span>
+            </div>
           </div>
         </motion.div>
 
@@ -169,7 +176,12 @@ export default function Hero() {
               variant="glass"
               size="lg"
               onClick={() => {
-                window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Request%20for%20Sponsorship%20Deck";
+                const a = document.createElement('a');
+                a.href = '/downloads/TECH_AURA_2026_Corporate_Sponsorship_Deck.pdf';
+                a.download = 'TECH_AURA_2026_Corporate_Sponsorship_Deck.pdf';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
               }}
               icon={<Download size={16} className="text-[#B5B5B5]" />}
             >
@@ -239,9 +251,16 @@ export default function Hero() {
               Sathyabama University
             </span>
             <span className="w-1.5 h-1.5 rounded-full bg-gray-600 hidden sm:inline" />
-            <span className="text-xs font-heading font-black text-gray-400 dark:text-gray-400 tracking-widest uppercase">
-              DOMINOVA
-            </span>
+            <div className="flex flex-col items-center gap-1">
+              <img 
+                src="/logos/dominova-logo.png" 
+                alt="Dominova Logo" 
+                className="h-6 w-auto object-contain"
+              />
+              <span className="text-[8px] font-mono tracking-tight text-gray-400 uppercase font-semibold">
+                Innovation Strategic Partner
+              </span>
+            </div>
           </div>
         </motion.div>
 

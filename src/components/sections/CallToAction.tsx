@@ -58,7 +58,12 @@ export default function CallToAction() {
               size="lg"
               icon={<Download size={16} className="text-[#B5B5B5]" />}
               onClick={() => {
-                window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Request%20for%20Sponsorship%20Deck";
+                const a = document.createElement('a');
+                a.href = '/downloads/TECH_AURA_2026_Corporate_Sponsorship_Deck.pdf';
+                a.download = 'TECH_AURA_2026_Corporate_Sponsorship_Deck.pdf';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
               }}
             >
               Download Deck
@@ -71,8 +76,12 @@ export default function CallToAction() {
               <span>National R&D Alliance Compliance</span>
             </div>
             <div className="flex items-center gap-2">
-              <Mail size={14} className="text-[#D4AF37]" />
-              <span>info@dominova.tech</span>
+              <span>📧</span>
+              <a href="mailto:info@dominova.tech" className="hover:text-white transition-colors">info@dominova.tech</a>
+            </div>
+            <div className="flex items-center gap-2">
+              <span>📞</span>
+              <a href="tel:+919025092699" className="hover:text-white transition-colors">+91 90250 92699</a>
             </div>
             <div className="flex items-center gap-2">
               <MapPin size={14} className="text-gray-400" />
@@ -86,25 +95,31 @@ export default function CallToAction() {
           <GlassCard accent="gold" className="p-8 sm:p-10" isHoverable={false}>
             <div className="mb-6 space-y-4">
               <h3 className="text-xl sm:text-2xl font-heading font-extrabold text-white tracking-tight">
-                Let's Build the Future Together
+                Need more information?
               </h3>
               <p className="text-xs sm:text-sm text-[#B5B5B5] leading-relaxed">
-                Interested in sponsoring TECH AURA 2026 or showcasing your startup? Our team would be happy to discuss sponsorship opportunities, startup exhibition packages, partnerships, and collaborations.
+                For sponsorships, startup exhibitions, partnerships and collaborations, contact us.
               </p>
             </div>
 
-            {/* Official Email Display */}
-            <div className="flex items-center gap-4 py-4 px-5 rounded-2xl bg-white/[0.02] border border-white/5 mb-8">
-              <div className="p-3 bg-white/[0.04] text-[#D4AF37] rounded-xl border border-white/5 flex items-center justify-center">
-                <Mail size={18} />
-              </div>
-              <div>
-                <span className="block text-[8px] font-mono tracking-wider text-gray-500 uppercase">OFFICIAL EMAIL</span>
+            {/* Official Contact Details */}
+            <div className="flex flex-col gap-3 py-4 px-5 rounded-2xl bg-white/[0.02] border border-white/5 mb-8 text-xs font-mono">
+              <div className="flex items-center gap-2.5">
+                <span className="text-sm">📧</span>
                 <a 
                   href="mailto:info@dominova.tech" 
-                  className="text-sm font-mono font-extrabold text-white hover:text-[#00C2FF] transition-colors block mt-0.5"
+                  className="font-extrabold text-white hover:text-[#00C2FF] transition-colors"
                 >
                   info@dominova.tech
+                </a>
+              </div>
+              <div className="flex items-center gap-2.5">
+                <span className="text-sm">📞</span>
+                <a 
+                  href="tel:+919025092699" 
+                  className="font-extrabold text-white hover:text-[#00C2FF] transition-colors"
+                >
+                  +91 90250 92699
                 </a>
               </div>
             </div>
@@ -126,18 +141,6 @@ export default function CallToAction() {
                 variant="glass"
                 size="md"
                 className="w-full text-xs font-mono uppercase tracking-wider py-3 border-white/10 flex items-center justify-center gap-2"
-                icon={<Building size={14} className="text-[#00C2FF]" />}
-                onClick={() => {
-                  window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Startup%20Stall%20Booking";
-                }}
-              >
-                Book Startup Stall
-              </InteractiveButton>
-
-              <InteractiveButton
-                variant="glass"
-                size="md"
-                className="w-full text-xs font-mono uppercase tracking-wider py-3 border-white/10 flex items-center justify-center gap-2"
                 icon={<Calendar size={14} className="text-[#D4AF37]" />}
                 onClick={() => {
                   window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Meeting%20Request";
@@ -150,12 +153,12 @@ export default function CallToAction() {
                 variant="glass"
                 size="md"
                 className="w-full text-xs font-mono uppercase tracking-wider py-3 border-white/10 flex items-center justify-center gap-2"
-                icon={<Download size={14} className="text-[#B5B5B5]" />}
+                icon={<Mail size={14} className="text-[#00C2FF]" />}
                 onClick={() => {
-                  window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20Request%20for%20Sponsorship%20Deck";
+                  window.location.href = "mailto:info@dominova.tech?subject=TECH%20AURA%202026%20-%20General%20Enquiry";
                 }}
               >
-                Download Sponsorship Deck
+                Email Team
               </InteractiveButton>
             </div>
           </GlassCard>
